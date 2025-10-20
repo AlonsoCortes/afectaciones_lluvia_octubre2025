@@ -79,12 +79,42 @@ export function cargarCapas(map){
             'type': 'circle',
             'source': 'centroInv_Source',
             'paint':{
-                'circle-radius': 6,
+                'circle-radius': 7,
                 'circle-color': primaryDeep,
                 'circle-stroke-width':1,
                 'circle-stroke-color': '#ffffff',
             }
-        })
+        });
+        // Popup
+        // Evento de clic sobre la capa
+        map.on('click', 'centroInv_Layer', (e) => {
+            // Obtiene la primera entidad seleccionada
+            const feature = e.features[0];
+
+            // Construye el contenido del popup con atributos del GeoJSON
+            const nombre = feature.properties.descripcion || 'Sin nombre';
+            const pagina = feature.properties.pagina || 'Sin dato';
+
+            const contenido = `
+                <div style="font-family: 'Noto Sans', sans-serif; font-size: 13px; line-height: 1.4;">
+                    <b style="font-size:14px;">${nombre}</b><br>
+                    <b></b> ${pagina}<br>
+                </div>
+            `;
+
+            // Crea el popup y lo posiciona donde se hizo clic
+            new maplibregl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(contenido)
+                .addTo(map);
+        });
+
+
+
+
+
+
+
         // Capa de Laboratorios Nacionales
         map.addSource('labNacional_Source', { 
             type: 'geojson',
@@ -95,14 +125,36 @@ export function cargarCapas(map){
             'type': 'circle',
             'source': 'labNacional_Source',
             'paint':{
-                'circle-radius': 4,
+                'circle-radius': 6,
                 'circle-color': primaryMedium,
                 'circle-stroke-width':0.5,
                 'circle-stroke-color': '#ffffff',
             }
         })
+    })
+    // Popup
+        // Evento de clic sobre la capa
+        map.on('click', 'labNacional_Layer', (e) => {
+            // Obtiene la primera entidad seleccionada
+            const feature = e.features[0];
 
-        })
+            // Construye el contenido del popup con atributos del GeoJSON
+            const nombre = feature.properties.nom_lab || 'Sin nombre';
+            const campo = feature.properties.campo_conoc || 'Sin dato';
+
+            const contenido = `
+                <div style="font-family: 'Noto Sans', sans-serif; font-size: 13px; line-height: 1.4;">
+                    <b style="font-size:14px;">${nombre}</b><br>
+                    <b></b> ${campo}<br>
+                </div>
+            `;
+
+            // Crea el popup y lo posiciona donde se hizo clic
+            new maplibregl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(contenido)
+                .addTo(map);
+        });
 }
         
         
