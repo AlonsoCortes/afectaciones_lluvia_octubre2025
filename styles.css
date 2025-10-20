@@ -1,0 +1,159 @@
+/* estilos default */
+:root {
+    /* ==== PRIMARIOS ==== */
+    --primary-light: #A3E4D7;      /* Verde agua - fondos suaves */
+    --primary: #48C9B0;            /* Verde turquesa - color principal */
+    --primary-medium: #17A589;     /* Verde intenso - botones, énfasis */
+    --primary-dark: #117864;       /* Verde oscuro - encabezados, barras */
+    --primary-deep: #0E6251;       /* Azul petróleo - hover, acentos */
+
+    /* ==== SECUNDARIOS ==== */
+    --secondary-mint: #D1F2EB;     /* Verde menta - fondos de tarjetas */
+    --secondary-graygreen: #82E0AA;/* Verde grisáceo - bordes suaves */
+    --secondary-emerald: #239B56;  /* Verde esmeralda - iconos secundarios */
+    --secondary-blue: #154360;     /* Azul profundo - botones secundarios */
+
+    /* ==== NEUTROS ==== */
+    --neutral-white: #FFFFFF;      /* Fondo principal */
+    --neutral-light: #F4F6F7;      /* Fondo paneles, aside */
+    --neutral-medium: #BFC9CA;     /* Bordes, texto secundario */
+    --neutral-dark: #424949;       /* Texto principal */
+
+    /* ==== APOYO / ALERTAS ==== */
+    --support-yellow: #F9E79F;     /* Advertencias suaves */
+    --support-red: #E74C3C;        /* Errores */
+    --support-blue: #5DADE2;       /* Información */
+}
+
+
+/* ==== ESTILOS BASE ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+body {
+  background-color: var(--neutral-light);
+  color: var(--neutral-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ==== CONTENEDOR GENERAL ==== */
+.contenedorApp {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+
+/* ==== ENCABEZADO ==== */
+header {
+  background-color: var(--neutral-white);
+  border-bottom: 2px solid var(--primary-light);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.barraNavegacion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 25px;
+  flex-wrap: wrap;
+}
+
+.barraNavegacion h1 {
+  font-size: 1.8rem;
+  color: var(--primary-dark);
+}
+
+.barraNavegacion p {
+  color: var(--neutral-medium);
+  font-size: 0.9rem;
+  margin-top: 5px;
+  flex-basis: 100%;
+}
+
+.boton {
+  background-color: var(--primary-medium);
+  color: var(--neutral-white);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.boton:hover {
+  background-color: var(--primary-deep);
+  transform: scale(1.03);
+}
+
+/* ==== CONTENIDO ==== */
+.contenido {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  background-color: var(--neutral-light);
+  padding: 10px;
+}
+
+/* ==== MAPA ==== */
+.contenedorMapa {
+  flex: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.leyenda {
+  position: absolute;
+  bottom: 60px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 13px;
+  color: #333;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 999;
+}
+
+.leyenda h3 {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 8px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.leyenda .item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.leyenda .item span {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  border-radius: 3px;
+  border: 1px solid #888;
+}
+
+

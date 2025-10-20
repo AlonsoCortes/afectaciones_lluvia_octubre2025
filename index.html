@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Municipios afectados por lluvias.</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- MapLibre GL JS CDN --> 
+    <script src="https://unpkg.com/maplibre-gl@^5.6.2/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@^5.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="contenedorApp">
+        <header>
+            <div class="barraNavegacion">
+                <h1>Municipios afectados por lluvias. </h1>
+                <p>Lunes 20 de Octubre de 2025</p>
+                <a href="https://www.gob.mx/reporteporlluvias/nav-zonas" target="_blank" class="boton">Datos</a>
+                
+            </div>
+        </header>
+
+
+        <div class="contenido">
+            <div class="contenedorMapa">
+                <div id="map"></div>
+                <div id="leyenda" class="leyenda">
+                    <h3>Entidad estatal </h3>
+                    <div class="item"><span style="background-color:#009688;"></span>Hidalgo</div>
+                    <div class="item"><span style="background-color:#1565C0;"></span>Veracruz</div>
+                    <div class="item"><span style="background-color:#E64A19;"></span>Puebla</div>
+                    <div class="item"><span style="background-color:#FBC02D;"></span>Querétaro</div>
+                    <div class="item"><span style="background-color:#558B2F;"></span>San Luis Potosí</div>
+                    </div>
+            </div>
+            </div>
+
+    </div>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
