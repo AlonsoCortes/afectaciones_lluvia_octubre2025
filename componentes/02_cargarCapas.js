@@ -11,7 +11,9 @@ export function cargarCapas(map){
     const estilos = getComputedStyle(document.documentElement);
 
     const atencion = estilos.getPropertyValue('--support-red').trim();
-    const bordeN = estilos.getPropertyValue('--neutral-dark').trim();
+    const bordeN = estilos.getPropertyValue('--neutral-dark').trim(); 
+    const primaryDeep = estilos.getPropertyValue('--primary-deep').trim(); 
+    const primaryMedium = estilos.getPropertyValue('--primary-medium').trim();
 
 
     map.on('load', () => { 
@@ -67,7 +69,38 @@ export function cargarCapas(map){
                 .setHTML(contenido)
                 .addTo(map);
         });
-
+        // Capa de Centros de Investigación
+        map.addSource('centroInv_Source', { 
+            type: 'geojson',
+            data: 'datos/hcti_centros_invest_conahcyt_0421_xy_p.geojson'
+        });
+        map.addLayer({
+            'id': 'centroInv_Layer',
+            'type': 'circle',
+            'source': 'centroInv_Source',
+            'paint':{
+                'circle-radius': 6,
+                'circle-color': primaryDeep,
+                'circle-stroke-width':1,
+                'circle-stroke-color': '#ffffff',
+            }
+        })
+        // Capa de Laboratorios Nacionales
+        map.addSource('labNacional_Source', { 
+            type: 'geojson',
+            data: 'datos/hcti_lab_nacionales_conahcyt_190523_xy_p.geojson'
+        });
+        map.addLayer({
+            'id': 'labNacional_Layer',
+            'type': 'circle',
+            'source': 'labNacional_Source',
+            'paint':{
+                'circle-radius': 4,
+                'circle-color': primaryMedium,
+                'circle-stroke-width':0.5,
+                'circle-stroke-color': '#ffffff',
+            }
+        })
 
         })
 }

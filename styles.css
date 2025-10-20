@@ -155,5 +155,10 @@ header {
   border-radius: 3px;
   border: 1px solid #888;
 }
+.leyenda .item .punto {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
 
 
